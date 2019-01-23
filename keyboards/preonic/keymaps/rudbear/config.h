@@ -13,6 +13,10 @@
                                 }
 #endif
 
+#define NO_ACTION_MACRO
+
+#define NO_ACTION_FUCTION                      
+
 #define MUSIC_MASK (keycode != KC_NO)
 
 /*
