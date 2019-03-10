@@ -62,7 +62,8 @@ MIDI_ENABLE = no            # MIDI support (+2400 to 4200, depending on config)
 AUDIO_ENABLE = no           # Audio output on port C6
 UNICODE_ENABLE = no         # Unicode
 BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
-RGBLIGHT_ENABLE = yes        # Enable WS2812 RGB underlight.  Do not enable this with audio at the same time.
+RGBLIGHT_ENABLE = yes        # Enable WS2812 RGB underlight.  !!! Do not enable this with audio at the same time!!!
 SLEEP_LED_ENABLE = YES       # Breathing sleep LED during USB suspend
+
 
 LAYOUTS = ortho_5x15
