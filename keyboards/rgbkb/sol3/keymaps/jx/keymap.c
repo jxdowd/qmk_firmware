@@ -30,8 +30,6 @@ enum sol_keycodes {
 #define LOWER    MO(_LOWER)
 #define ADJUST   MO(_ADJUST)
 #define QWERTY   DF(_QWERTY)
-#define GAMEX    DF(_GAMEX)
-#define FN_CAPS  LT(_FN, KC_CAPS)
 //#define RGB_ADJ  LT(_ADJUST, RGB_TOG)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -40,13 +38,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐  ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐
  * │  `   │   1  │   2  │   3  │   4  │   5  │      │  │      │   6  │   7  │   8  │   9  │   0  │  -   │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │ Tab  │   Q  │   W  │   E  │   R  │   T  │      │  │      │   Y  │   U  │   I  │   O  │   P  │ BkSP │
+ * │ Esc  │   Q  │   W  │   E  │   R  │   T  │      │  │      │   Y  │   U  │   I  │   O  │   P  │ BkSP │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │ Tab  │   A  │   S  │   D  │   F  │   G  │      │  │      │   H  │   J  │   K  │   L  │   ;  │   '  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │Shift │   Z  │   X  │   C  │   V  │   B  │      │  │      │   N  │   M  │   ,  │   .  │   /  │Enter │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │ Ctrl │ Ctrl │  Alt │  RGB │ ADJ  │      │Lower │  │Raise │      │ Left │ Down │  Up  │Right │  FN  │
+ * │Raise │ Ctrl │  Alt │  GUI │ Lower│      │Lower │  │Raise │      │ Left │ Down │  Up  │Right │Lower │
  * └──────┴──────┴──────┴──────┴──────┤ Space├──────┤  ├──────┤ BkSp ├──────┴──────┴──────┴──────┴──────┘
  *                                    │      │ DEL  │  │RShift│      │
  *                                    └──────┴──────┘  └──────┴──────┘
@@ -60,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
         KC_GRV,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______,                  _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
         KC_ESC,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______,                  _______, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-        FN_TAB,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______,                  _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+        KC_TAB,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______,                  _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,                  _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-        KC_LCTR, KC_LCTL,  KC_LALT, KC_LGUI, ADJUST,  KC_SPC,  KC_DEL,  LOWER,   RAISE,  KC_RSFT, KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, ADJUST,
+        RAISE,    KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_DEL,  LOWER,    RAISE,  KC_RSFT, KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, LOWER,
 
         KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU,                                     KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU,
         KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, KC_MPRV,                                                       KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, KC_MPRV
@@ -72,15 +70,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐  ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐
  * │  `   │   !  │   @  │   #  │   $  │   %  │      │  │      │   ^  │   &  │   *  │   (  │   )  │   =  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │  `   │   !  │   @  │   #  │   $  │   %  │      │  │      │   ^  │   &  │   *  │   (  │   )  │   -  │
+ * │  `   │   !  │   @  │   #  │   $  │   %  │      │  │      │   ^  │   &  │   *  │   (  │   )  │      │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │ Tab  │   A  │   S  │   D  │   F  │   G  │      │  │      │   H  │   J  │   K  │   L  │   ;  │   '  │
+ * │ Tab  │  F1  │  F2  │  F3  │  F4  │  F5  │      │  │      │  F6  │   _  │   +  │   {  │   }  │   |  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │Shift │   Z  │   X  │   C  │   V  │   B  │      │  │      │   N  │   M  │   ,  │   .  │   /  │Enter │
+ * │Shift │  F7  │  F8  │  F9  │  F10 │  F11 │      │  │      │  F12 │   |  │ Prev │ Play │ Next │Enter │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │ Ctrl │ Ctrl │  Alt │  RGB │ ADJ  │      │ DEL  │  │ Enter│      │ Left │ Down │  Up  │Right │  FN  │
- * └──────┴──────┴──────┴──────┴──────┤ Space├──────┤  ├──────┤ BkSp ├──────┴──────┴──────┴──────┴──────┘
- *                                    │      │ DEL  │  │ Enter│      │
+ * │      │      │      │  RGB │ ADJ  │      │      │  │      │      │ Left │ Down │  Up  │Right │  FN  │
+ * └──────┴──────┴──────┴──────┴──────┤      ├──────┤  ├──────┤      ├──────┴──────┴──────┴──────┴──────┘
+ *                                    │      │      │  │      │      │
  *                                    └──────┴──────┘  └──────┴──────┘
  * ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
  * │Vol Dn│Vol Up│Vol Dn│Vol Up│Vol Dn│Vol Up│                │Vol Dn│Vol Up│Vol Dn│Vol Up│Vol Dn│Vol Up│
@@ -90,12 +88,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * └──────┴──────┴──────┴──────┴──────┘                              └──────┴──────┴──────┴──────┴──────┘
  */
     [_LOWER] = LAYOUT(
-        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINS, _______,
-        _______, KP_1,    KP_2,    KP_3,    KP_4,    KP_5,    _______,                   _______, KP_6,    KP_7,    KP_8,    KP_9,    KP_0,    _______,
-        _______, KC_HOME, KC_UP,   KC_END,  _______, _______, _______,                   _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PSCR, KC_PGUP,
-        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______,                   _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_INS,  KC_PGDN,
-        _______, AU_TOG,  MU_TOG,  MU_MOD,  _______, _______, _______,                   _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
-        _______, CK_TOGG, CK_UP,   CK_DOWN, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_VOLD, KC_VOLU, KC_END, _______,
+        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______,                   _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL,
+        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, _______,                   _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+        KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,                   _______, KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+        _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  _______,                   _______, KC_F12,  _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
+        _______, AU_TOG,  MU_TOG,  MU_MOD,  _______, _______, _______,_______,  _______, _______, _______, _______, KC_HOME, KC_VOLU, KC_VOLD, KC_END,
 
         _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______
@@ -111,9 +108,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │Shift │   Z  │   X  │   C  │   V  │   B  │      │  │      │   N  │   M  │   ,  │   .  │   /  │Enter │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │ Ctrl │ Ctrl │  Alt │  RGB │ ADJ  │      │ DEL  │  │ Enter│      │ Left │ Down │  Up  │Right │  FN  │
- * └──────┴──────┴──────┴──────┴──────┤ Space├──────┤  ├──────┤ BkSp ├──────┴──────┴──────┴──────┴──────┘
- *                                    │      │ DEL  │  │ Enter│      │
+ * │      │ Ctrl │  Alt │  RGB │ ADJ  │      │      │  │      │      │ Home │ VOL- │ VOL+ │ End  │      │
+ * └──────┴──────┴──────┴──────┴──────┤      ├──────┤  ├──────┤      ├──────┴──────┴──────┴──────┴──────┘
+ *                                    │      │      │  │      │      │
  *                                    └──────┴──────┘  └──────┴──────┘
  * ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
  * │Vol Dn│Vol Up│Vol Dn│Vol Up│Vol Dn│Vol Up│                │Vol Dn│Vol Up│Vol Dn│Vol Up│Vol Dn│Vol Up│
@@ -123,11 +120,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * └──────┴──────┴──────┴──────┴──────┘                              └──────┴──────┴──────┴──────┴──────┘
  */
     [_RAISE] = LAYOUT(
-        _______, KP_1,    KP_2,    KP_3,    KP_4,    KP_5,    _______,                   _______, KP_6,    KP_7,    KP_8,    KP_9,    KP_0,    _______,
-        _______, KC_HOME, KC_UP,   KC_END,  _______, _______, _______,                   _______, _______, KC_HOME, KC_UP,   KC_END,  KC_PSCR, KC_PGUP,
-        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______,                   _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_INS,  KC_PGDN,
-        _______, AU_TOG,  MU_TOG,  MU_MOD,  _______, _______, _______,                   _______, _______, _______, _______, _______, _______, _______,
-        _______, CK_TOGG,   CK_UP, CK_DOWN, _______, _______, _______, _______, _______, _______, _______, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,                      _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,                      _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
+        KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,                   _______, KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
+        _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  _______,                   _______, KC_F12,  _______, KC_MPRV, KC_MPLY, KC_MNXT, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_VOLD, KC_VOLU, KC_END,  _______,
 
         _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,                                                       _______, _______, _______, _______, _______
@@ -135,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust (Lower + Raise)
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐  ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┐
- * │  `   │   1  │   2  │   3  │   4  │   5  │      │  │      │   6  │   7  │   8  │   9  │   0  │  -   │
+ * │  `   │  F1  │  F2  │  F3  │  F4  │  F5  │      │  │      │  F6  │  F7  │  F8  │  F9  │ F10  │  -   │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │ Tab  │   Q  │   W  │   E  │   R  │   T  │      │  │      │   Y  │   U  │   I  │   O  │   P  │ BkSP │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
@@ -210,11 +207,8 @@ void render_layer_status(void) {
         case _RAISE:
             oled_write_ln_P(PSTR("Raise "), false);
             break;
-        case _GAME:
-            oled_write_ln_P(PSTR("Lower "), false);
-            break;
-        case _FN:
-            oled_write_ln_P(PSTR("FN   "), false);
+        case _LOWER:
+            oled_write_ln_P(PSTR("Lower"), false);
             break;
         case _ADJUST:
             oled_write_ln_P(PSTR("Adjst"), false);
