@@ -73,6 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, \
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_MPRV, KC_MPLY, KC_MNXT, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______, KC_PAGE_UP, KC_VOLD, KC_VOLU, KC_PAGE_DOWN \
+)
 
 /* Raise
  * ,-----------------------------------------------------------------------------------.
@@ -101,18 +102,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |SLEEP | Reset| DEBUG|      |      |      |      |      |      |      |      |  Del |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | CAPS |      |MusMOD|Aud on|AudOff|AGnorm|AGswap|Qwerty|      |      |      |MsWhlU|
+ * | CAPS |      |MusMOD|Aud on|AudOff|AGnorm|AGswap|Qwerty|RGB UG|RGBtog|RGBmod|MsWhlU|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |RGB UG|RGBtog|RGBmod|MsWhlD|
+ * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |LMB   |MMB   |RMB   |MsWhlD|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |LMBttn|MMBttn|RMBttn|      |             |      |mouseL|mouseD|mouseU|mouseR|
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_grid(
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  \
-    _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,  \
-    KC_CAPS, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, KC_WH_U, \
-    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, RGB_MOD, RGB_TOG, RGB_RMOD, KC_WH_D, \
+    KC_SLEP, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,  \
+    KC_CAPS, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  RGB_MOD, RGB_TOG, RGB_RMOD,KC_WH_U, \
+    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, KC_BTN1, KC_BTN3, KC_BTN2, KC_WH_D, \
     _______, KC_BTN1, KC_BTN3, KC_BTN2, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R  \
 )
 
