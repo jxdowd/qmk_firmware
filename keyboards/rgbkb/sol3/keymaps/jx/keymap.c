@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤  ├──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │Raise │ Ctrl │  Alt │  GUI │ Lower│      │Lower │  │Raise │      │ Left │ Down │  Up  │Right │Lower │
  * └──────┴──────┴──────┴──────┴──────┤ Space├──────┤  ├──────┤ BkSp ├──────┴──────┴──────┴──────┴──────┘
- *                                    │      │ GUI  │  │RShift│      │
+ *                                    │      │ GUI  │  │ GUI  │      │
  *                                    └──────┴──────┘  └──────┴──────┘
  * ┌──────┬──────┬──────┬──────┬──────┬──────┐                ┌──────┬──────┬──────┬──────┬──────┬──────┐
  * │Vol Dn│Vol Up│Vol Dn│Vol Up│Vol Dn│Vol Up│                │Vol Dn│Vol Up│Vol Dn│Vol Up│Vol Dn│Vol Up│
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______,                  _______, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
         KC_TAB,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______,                  _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______,                  _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-        RAISE,    KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LOWER,  KC_RGUI, KC_RSFT, RAISE,   KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, LOWER,
+        RAISE,    KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  LOWER,  KC_GUI,  KC_RSFT, RAISE,   KC_BSPC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, LOWER,
 
         KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU,                                     KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU, KC_VOLD, KC_VOLU,
         KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, KC_MPRV,                                                       KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, KC_MPRV
@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_ADJUST] = LAYOUT(
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F11,                    KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
         _______, RGB_SAD, RGB_VAI, RGB_SAI, RESET,   _______, _______,                   _______, _______, KC_P7,   KC_P8,   KC_P9,   _______, _______,
-        _______, RGB_HUD, RGB_VAD, RGB_HUI, RGB_RST, _______, DM_REC1,                   _______, _______, KC_P4,   KC_P5,   KC_P6,   _______, _______,
+        KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, RGB_RST, CG_NORM, DM_REC1,                   _______, CG_SWAP, KC_P4,   KC_P5,   KC_P6,   _______, _______,
         _______, RGB_SPD, _______, RGB_SPI, _______, _______, DM_RSTP,                   _______, _______, KC_P1,   KC_P2,   KC_P3,   _______, _______,
         _______, RGB_RMOD,RGB_TOG, RGB_MOD, _______, _______, _______, _______, _______, _______, _______, KC_P0,   KC_PDOT, KC_NLCK, QWERTY,  _______,
 
